@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:context="http://www.springframework.org/schema/context"
+xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans.xsd 
+http://www.springframework.org/schema/context 
+http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+<bean id="helloworld" class="com.psl.pojo.HelloWorld" init-method="init"
+	destroy-method="destroy"></bean>
+	<!-- By default bean has singelton scope -->
+<bean id="person" class="com.psl.pojo.Person" scope="prototype">
+	<property name="name" value="Kiran"/>
+	<property name="homeAddress">
+	<bean id="addr" class="com.psl.pojo.Address">
+		<property name="city" value="Pune"/>
+		<property name="pincode" value="411040"/>
+	</bean>
+	</property>
+	<property name="officeAddress" ref="offAddr"/>
+</bean>
+<bean id="officeaddress" class="com.psl.pojo.Address">
+	<property name="city" value="Chennai"/>
+	<property name="pincode" value="546587"/>
+</bean>
+<alias alias="offAddr" name="officeaddress"/>
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+

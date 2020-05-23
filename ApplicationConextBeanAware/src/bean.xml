@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd" xmlns:context="http://www.springframework.org/schema/context" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.springframework.org/schema/beans">
+
+<context:component-scan base-package="com.psl"/>
+<context:annotation-config></context:annotation-config>
+<bean class="com.psl.bean.Employee" id="emp">
+
+<constructor-arg index="0" value="101"/> 
+<constructor-arg index="1" value="Riya"/>
+		
+	
+</bean>
+<bean class="com.psl.postprocessors.DisplayBeanPostProcessor"></bean>	
+<!-- <bean id="loc" class="com.psl.training.spring.Location"><property name="code" value="IND-PUN"></property></bean> -->
+
+</beans>

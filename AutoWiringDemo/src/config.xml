@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:context="http://www.springframework.org/schema/context"
+xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans.xsd 
+http://www.springframework.org/schema/context 
+http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+<!-- Mandatory for using Annotations in SPRING Framework -->
+<context:component-scan base-package="com.psl"></context:component-scan>
+
+	<!--<bean id="address" class="com.psl.pojo.Address">
+		<property name="city" value="Mumbai"></property>
+		<property name="pincode" value="400092"></property>
+	</bean>
+	<bean id="person" class="com.psl.pojo.Person" autowire="byName">
+		<property name="name" value="Purnima"/>		
+	</bean>
+	<bean id="person" class="com.psl.pojo.Person" autowire="byType">
+		<property name="name" value="Purnima"/>		
+	</bean>
+	<bean id="person" class="com.psl.pojo.Person" autowire="constructor">
+		<property name="name" value="Purnima"/>		
+	</bean>-->
+	
+	<bean id="address1" class="com.psl.pojo.Address">
+		<qualifier value="ad"></qualifier>
+		<property name="city" value="Texas"></property>
+		<property name="pincode" value="111111"></property>
+	</bean>
+	<bean id="address2" class="com.psl.pojo.Address">
+		<qualifier value="addr"></qualifier>
+		<property name="city" value="LA"></property>
+		<property name="pincode" value="000007"></property>
+	</bean>
+	<bean id="person" class="com.psl.pojo.Person">
+		<property name="name" value="Purnima"/>		
+	</bean>
+</beans>

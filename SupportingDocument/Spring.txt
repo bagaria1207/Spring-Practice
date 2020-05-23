@@ -1,0 +1,155 @@
+Enterprise Application & Desktop Application
+
+* Cross Cutting Concerns
+ORM(Object relational Mapping)
+OXM(Object XML Mapping)
+JPA - Object to Object Mapping, HIBERNATE
+We can use JPA ana Hibernate in our SPRING Framework for such functionality
+
+POJO - pure old java object
+* THESE FIVE JARS are needed for basic desktop application
+  commons-loggin
+  beans
+  express
+  core 
+  context
+
+
+IOC -> Inversion of control(Developer is not responsible for any creation LifeCyle is maintained by core container)
+DI -> Dependency Injection belongs to IOC only (We apply loose coupling in SRING Framework)
+	* Constructor Injection
+	* Setter Injection
+
+It is mandatory to keep classes inside a package in spring application otherwise configuration is not possible
+* PROJECT
+  *  lib -> Jar Files(Which needs to be in build path
+  *  src -> Config.xml, Packages
+
+-> Any Bean can have 4 scope
+  * singelton ->By default each bean has a singelton scope
+  * prototype
+* Below two for web application
+	* request
+	* session
+
+* AutoWiring
+  -> XML Configuration
+  -> Using Annnotations -> context:component-scan base-package
+
+byName(it checks datatype and then searches for same name in xml file) and byType -> Set method of respective property will be called
+constructor -> Constructor for particular attribute needs to be implemented
+JPA 
+
+You can have multiple xml files in a spring application, for configuration of beans we use only one bean file and for 
+db or web configuration we use different xml files.
+
+Connection Pooling->JDBC
+
+JdbcDaoSupport
+
+???? WAP to Create EmployeeRowMapper
+
+
+AOP->Aspect Oriented Programming
+Other than bussiness logic any other functionality can be applied through it
+eg:- Logging, 
+Implementation of ASPECT is known as ADVICE;
+where advice needs to be applied in bussiness logic is known as point cuts
+
+the root element that needs to be used to confire AOP Class is <aop:config>
+
+g*->From bussiness class whichever method starts with g
+g*(*)->any number of parameters
+
+joint point is only used by around advice
+
+Spring with AOP will give EJB type application.
+
+*->>Proxy and Target Class.
+
+->ProxyFactory Class<-
+
+Isolation level to be used;
+READ_COMMITTED
+READ_UNCOMMITTED
+REPEATABLE_READ
+SERIALIZABLE
+
+
+* SPRING MVC
+	model -> bussiness data(from service layer)
+	view -> presentation
+	controller -> servlet is acting as controller(flow of application)
+
+
+STUDY SERVLETS and JSP
+Apache is a server tomcat is a container
+
+
+For a SERVLET:-
+Class Name
+Internal Name
+URL Pattern
+
+Benifit of SPRING MVC is that we create only only servlet and pojo classes can be treated as servlets
+<welcome-file>index.jsp</welcome-file>
+index.jsp will be searched in WebContent folder 
+
+Application oriented configurations are written in "*-servlet.xml".
+
+
+
+
+* WEB SERVICES
+
+Connecting two applications.
+-> Types:-
+	* SOAP -> simple object access protocol
+	* REST -> Representation state transfer
+
+
+True or false : Annotation injection is performed before XML injection
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

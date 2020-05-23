@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  http://www.springframework.org/schema/context 
+http://www.springframework.org/schema/context/spring-context-3.1.xsd -->
+
+<beans xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans.xsd 
+http://www.springframework.org/schema/aop
+http://www.springframework.org/schema/aop/spring-aop-3.0.xsd" 
+xmlns:context="http://www.springframework.org/schema/context" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns:aop="http://www.springframework.org/schema/aop"
+xmlns="http://www.springframework.org/schema/beans">
+	
+	
+	<bean id="logging" class="com.psl.aop.Logger"></bean>
+	<bean id="insert" class="com.psl.aop.InsertAspect"></bean>
+	
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+		<property name="url" value="jdbc:mysql://localhost:3306/test"></property>
+		<property name="username" value="root"></property>
+		<property name="password" value="root"></property>
+	</bean>
+	<bean id="dao" class="com.psl.dao.EmployeeDao">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	
+	
+	
+	<bean id="emp5" class="com.psl.bean.Employee">
+		<property name="empId" value="105"></property>
+		<property name="empName" value="M"></property>
+		<property name="empSal" value="300"></property>
+		<property name="designation" value="CO"></property>
+	</bean>
+	  <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+	<!--<aop:config>
+	  	<aop:aspect ref="logging">
+			<aop:pointcut expression="execution(* com.psl.aop.BankImpl.g*(*))" id="logBeforePointCut"/>
+				<aop:before pointcut-ref="logBeforePointCut" method="logBefore"/>
+				<aop:after pointcut-ref="logBeforePointCut" method="logAfter"/>	
+				<aop:after-throwing pointcut-ref="logBeforePointCut" method="logError"/>
+				<aop:after-returning pointcut-ref="logBeforePointCut" method="success"/>
+		</aop:aspect>-->
+		<!-- <aop:aspect ref="insert">
+			<aop:pointcut expression="execution(within(com.psl.dao.EmployeeDaoI+)and bean(Employee)" id="logAroundPointCut"/>
+			<aop:around pointcut-ref="logAroundPointCut" method="insertEmployee" arg-names="bean"/>
+		</aop:aspect> 
+	</aop:config>-->
+	
+</beans>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  http://www.springframework.org/schema/context 
+http://www.springframework.org/schema/context/spring-context-3.1.xsd -->
+
+<beans xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans.xsd 
+http://www.springframework.org/schema/aop
+http://www.springframework.org/schema/aop/spring-aop-3.0.xsd" 
+xmlns:context="http://www.springframework.org/schema/context" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns:aop="http://www.springframework.org/schema/aop"
+xmlns="http://www.springframework.org/schema/beans">
+	
+	<bean id="bank" class="com.psl.aop.BankImpl"></bean>
+	<bean id="logging" class="com.psl.aop.Logger"></bean>
+	<bean id="transfer" class="com.psl.aop.TransferAspect"></bean>
+
+
+	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+	<!-- <aop:config>
+		<aop:aspect ref="logging">
+			<aop:pointcut expression="execution(* com.psl.aop.BankImpl.g*(*))" id="logBeforePointCut"/>
+				<aop:before pointcut-ref="logBeforePointCut" method="logBefore"/>
+				<aop:after pointcut-ref="logBeforePointCut" method="logAfter"/>	
+				<aop:after-throwing pointcut-ref="logBeforePointCut" method="logError"/>
+				<aop:after-returning pointcut-ref="logBeforePointCut" method="success"/>
+		</aop:aspect>
+		<aop:aspect ref="transfer">
+			<aop:pointcut expression="execution(* com.psl.aop.BankImpl.transfer(int,int,double)) 
+			and args(creditActNo, debitActNo, amt)" id="logAroundPointCut"/>
+			<aop:around pointcut-ref="logAroundPointCut" method="transferTransaction" arg-names="creditActNo,debitActNo,amt"/>
+		</aop:aspect>
+	</aop:config>-->
+	
+</beans>
